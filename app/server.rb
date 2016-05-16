@@ -12,10 +12,6 @@ class BnByte4 < Sinatra::Base
   
   set :partial_template_engine, :erb
   enable :partial_underscores
-  
-  get '/' do
-    'Hello BnByte4!'
-  end
 
   helpers do
     def current_user
