@@ -18,7 +18,8 @@ class BnByte4 < Sinatra::Base
 
   get '/spaces/request' do
     @space_id = params[:space_id]
+    @space = Space.get(@space_id)
     "Hello world" + @space_id.to_s
-    # erb :'/spaces/request' + @space_id
+    erb :'/spaces/request'
   end
 end

@@ -8,7 +8,8 @@ feature 'Request a space'  do
 
 	scenario 'user can request a space' do
     	sign_up
-      click_button('Start')
+      create_space
+      click_link('Request this space')
       expect(page.status_code).to eq(200)
 	end
 end
