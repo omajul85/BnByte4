@@ -5,4 +5,3 @@ feature 'User sign up' do
     expect(User.first.email).to eq('bob@aol.com')
 	end
 end
-
