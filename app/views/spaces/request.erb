@@ -1,3 +1,10 @@
-<h1> Hello world <%= @space_id.to_s %> </h1>
 
-<h1> Hello world <%= @space.description %> </h1>
+<div class="jumbotron">
+  <h1 class="display-3"><%= @space.description %> </h1>
+  <p class="lead"> Price per night: <%= @space.price %> </p>
+  <hr class="m-y-2">
+  <p>Here is some other text that can be used to describe some other important information</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Check availability</a>
+  </p>
+</div>
