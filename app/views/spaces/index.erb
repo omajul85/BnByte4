@@ -1,19 +1,14 @@
 <h1> Spaces </h1>
 
 <% if current_user %>
-	<h3><a class="btn btn-primary" href="/spaces/new">Create a new space</a></h3>
+<h3><a class="btn btn-primary" href="/spaces/new">Create a new space</a></h3>
 <% end %>
 
 <% @spaces.each_with_index do |s, i| %>
 <div id='space_<%= i%>' class='spaces'>
 	<h3> <%= s.name %> <span id="price">(Price per night: <%= s.price %>)</span></h3>
 	<p class="space_description"> <%= s.description %> </p>
-	<button type="button" href="/spaces/request" class="btn btn-primary" value=< %s.id > Request this space  </button>
-	
-	<!-- <a class="btn btn-default" href="#" role="button">Link</a>
-	<button class="btn btn-default" type="submit">Button</button>
-	<input class="btn btn-default" type="button" value="Input">
-	<input class="btn btn-default" type="submit" value="Submit"> -->
 
+  <a href="/spaces/request?space_id=<%= s.id %>" class="btn btn-primary"> Request this space  </a>
 </div>
 <% end %>
