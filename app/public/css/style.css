@@ -78,7 +78,7 @@ textarea {
   font-size: 15px;
 }
 
-.peeps {
+.spaces {
   background-color: white;
   border-style: double;
   border-radius: 10px;
@@ -90,26 +90,26 @@ textarea {
   overflow: auto;
 }
 
-.peeps h3 { 
+.spaces h3 { 
   float: left;
   margin: 10px;
   color: black;
 }
 
-.peeps img { 
+.spaces img { 
   width:  50%;
 }
 
-.peep_content {
+.space_description {
   text-align: justify;
   margin: 10px;
 }
 
-.peep_time {
+/*.peep_time {
   text-align: right;
   margin-right: 10px;
   color: #e6005c;
-}
+}*/
 
 .sign {
   margin-bottom: 5px;

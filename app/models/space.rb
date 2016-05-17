@@ -5,13 +5,13 @@ class Space
   
   include DataMapper::Resource
 
-  has n, :requests
+  # has n, :requests
   belongs_to :user
 
   property :id, Serial
   property :name, String, required: true
   property :description, String, required: true
-  property :price, Float, required: true
+  property :price, String, required: true
   property :available_from, Date, required: true
   property :available_to, Date, required: true
 

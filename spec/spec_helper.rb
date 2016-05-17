@@ -5,8 +5,8 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'orderly'
 require './app/app'
-# require './app/models/'
-# require_relative 'helpers/session'
+require './app/models/space'
+require_relative 'helpers/session'
 
 Capybara.app = BnByte4
 
