@@ -6,7 +6,6 @@
 
 <% @spaces.each_with_index do |s, i| %>
 <div id='space_<%= i%>' class='spaces'>
-<h3> @<%= s.user.username %></h3>
 	<p> <%= s.name %> </p>
 	<p class="space_description"> <%= s.description %> </p>
 </div>
