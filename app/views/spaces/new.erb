@@ -1,9 +1,21 @@
 <h1>Create spaces</h1>
 <form action="/spaces" method='post'>
-  <input class='sign' type='text' name='name' placeholder='Name' required><br>
-  <textarea class="sign" name='description' placeholder="Description" required=""></textarea><br>
-  <input class='sign' type='text' name='price'  placeholder='Price' required><br>
-  <input class='sign' type='text' name='available_from' placeholder='Available form'><br>
-  <input class='sign' type='text' name='available_to' placeholder='Available until'><br>
-  <input class='sign' type='submit' value='Create space'>
+	<input class='sign' type='text' name='name' placeholder='Name' required><br>
+	<textarea class="sign" name='description' placeholder="Description" required></textarea><br>
+	<input class='sign' type='text' name='price'  placeholder='Price' required><br>
+	<input class='sign bnb_date' type='text' name='available_from' placeholder='Available from' required><br>
+	<input class='sign bnb_date' type='text' name='available_to' placeholder='Available to' required><br>
+	<input class='sign' type='submit' value='Create space'>
 </form>
+
+<script>
+	$(document).ready(function(){
+		$('.bnb_date').datepicker({
+			datesDisabled: ["05/25/2016","05/26/2016"],
+			autoclose: true,
+			startDate: "today",
+			todayHighlight: true,
+			format: "dd/mm/yyyy"
+			});
+	});
+</script>
