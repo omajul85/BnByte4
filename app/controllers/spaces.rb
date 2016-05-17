@@ -10,4 +10,8 @@ class BnByte4 < Sinatra::Base
     	available_to: params[:available_to])      
     redirect '/'   
   end 
+
+  get '/spaces/new' do
+    erb :'/spaces/new'
+  end
 end

@@ -7,6 +7,9 @@ feature 'Adding spaces'  do
   end
 
 	scenario 'host can add a new space when logged in' do
-
+    sign_up
+    #expect(current_path).to eq('/')
+    expect{ create_space }.to change(Space, :count ).by(1) 
+    expect(page).to have_content('This is a test space')
 	end
 end
