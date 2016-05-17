@@ -1,12 +1,12 @@
 <h1> Spaces </h1>
 
 <% if current_user %>
-<p>Here the information about the spaces of <%= current_user.name %></p>
+	<h3><a class="btn btn-primary" href="/spaces/new">Create a new space</a></h3>
 <% end %>
 
 <% @spaces.each_with_index do |s, i| %>
 <div id='space_<%= i%>' class='spaces'>
-	<p> <%= s.name %> </p>
+	<h3> <%= s.name %> <span id="price">(Price per night: <%= s.price %>)</span></h3>
 	<p class="space_description"> <%= s.description %> </p>
 </div>
 <% end %>
