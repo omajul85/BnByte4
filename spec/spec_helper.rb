@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
+require 'coveralls'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
@@ -7,13 +8,14 @@ require 'orderly'
 require './app/app'
 require './app/models/space'
 require_relative 'helpers/session'
+require_relative 'helpers/web_helper'
 
 Capybara.app = BnByte4
 
 RSpec.configure do |config|
   
   config.include Capybara::DSL
-  config.include SessionHelpers
+  # config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
