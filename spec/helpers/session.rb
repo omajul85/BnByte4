@@ -28,4 +28,11 @@ module SessionHelpers
     fill_in :available_to, with: (Date.today + 1).to_s
     click_button('Create space')
   end
+
+  def search_for_a_space
+    visit('/spaces/list')
+    expect(page.status_code).to eq(200)
+  end
+
+
 end
