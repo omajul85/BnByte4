@@ -5,9 +5,14 @@ class BnByte4 < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.create(user: current_user, name: params[:name], description: params[:description],
-    	price: params[:price], available_from: params[:available_from],
-    	available_to: params[:available_to])
+    Space.create(
+      user: current_user,
+      name: params[:name],
+      description: params[:description],
+    	price: params[:price],
+      available_from: params[:available_from],
+    	available_to: params[:available_to]
+      )
     redirect '/'
   end
 

@@ -1,1 +1,4 @@
-<h4>You have made a request for <%= @request.spaces.name %></h4>
+<h4>You have made a request for <% @space_names.each do |name| %>
+  <%= name %>
+  <% end %>
+</h4>
