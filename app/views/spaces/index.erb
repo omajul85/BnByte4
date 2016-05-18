@@ -5,10 +5,10 @@
 <% end %>
 
 <p>Filter by date</p>
-<form action="/spaces" method='post'>
+<form action="/spaces/filtered" method='post'>
 	<input class='sign' id="daterange" type='text' name='datepicker' placeholder='Available from' required><br>
-	<input type='hidden' id='filter_from' name='available_from' value=""><br>
-	<input type='hidden' id='filter_to' name='available_to' value=""><br>
+	<input type='hidden' id='filter_from' name='available_from' value=''><br>
+	<input type='hidden' id='filter_to' name='available_to' value=''><br>
 	<input id="submit" class='sign' type='submit' value='Show spaces available'>
 </form>
 
@@ -39,7 +39,7 @@
     // "endDate": "08/31/2016"
 }, function(start, end, label) {
   console.log("New date range selected: ' + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY') + ' (predefined range: ' + label + ')");
-});	
+});
 	var availableFrom;
 	var availableTo;
 
