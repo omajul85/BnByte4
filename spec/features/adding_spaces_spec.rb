@@ -10,7 +10,7 @@ feature 'Adding spaces'  do
   end
 
 	scenario 'host can add a new space when logged in' do
-    sign_in(email: 'foo@bar.com', password: 'foobar')
+    sign_in
     create_space(description: 'This is a test space')
     expect(page.status_code).to eq(200)
     expect(page).to have_content('This is a test space')
