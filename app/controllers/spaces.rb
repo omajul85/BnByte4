@@ -1,6 +1,13 @@
 class BnByte4 < Sinatra::Base
   get '/' do
-    @spaces = Space.all
+    if $ids
+      @spaces = []
+      $ids.each do |id|
+        @spaces << Space.get(id)
+      end
+    else
+      @spaces = Space.all
+    end
     erb :'spaces/index'
   end
 
@@ -22,7 +29,8 @@ class BnByte4 < Sinatra::Base
     @array_of_spaces.select! do |space|
       space.available_from >= @date_from && space.available_to <= @date_to
     end
-    p @array_of_spaces
+    $ids = []
+    @array_of_spaces.each{ |space| $ids << space.id }
     redirect '/'
   end
 
