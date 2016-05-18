@@ -19,15 +19,21 @@ module SessionHelpers
   end
 
   def create_space(name: 'Title for the space', description: 'Description here',
-    price: '£50', available_from: Date.today.to_s, available_to: (Date.today + 1).to_s)
+    price: '£50', range: "01-12-2016 - 30-12-2016")
     visit('/spaces/new')
     expect(page.status_code).to eq(200)
     fill_in :name, with: name
     fill_in :description, with: description
     fill_in :price, with: price
-    fill_in :available_from, with: available_from
-    fill_in :available_to, with: available_to
+    fill_in :datepicker, with: range
+    # fill_in :available_from, with: available_from
+    # fill_in :available_to, with: available_to
     click_button('Create space')
   end
 
+  def filter(available_from: "01/12/2016", available_to: "30/12/2016")
+    fill_in :from, with: available_from
+    fill_in :until, with: available_to
+    click_button 'Show spaces available'
+  end
 end
