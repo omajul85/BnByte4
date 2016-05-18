@@ -29,4 +29,5 @@ module SessionHelpers
     fill_in :available_to, with: available_to
     click_button('Create space')
   end
+
 end

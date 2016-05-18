@@ -8,7 +8,7 @@ p {font-size: 16px;}
 
 .margin {margin-bottom: 45px;}
 
-.bg-1 { 
+.bg-1 {
   background-image: url(/images/houses.jpg);
   background-repeat: repeat;
   color: #ffffff;
@@ -51,7 +51,7 @@ input {
 }
 
 .navbar_button {
-  background:transparent; 
+  background:transparent;
   border:0 none;
   cursor:pointer;
 }
@@ -90,13 +90,13 @@ textarea {
   overflow: auto;
 }
 
-.spaces h3 { 
+.spaces h3 {
   margin: 10px;
   color: black;
   text-align: left;
 }
 
-.spaces p { 
+.spaces p {
   width:  50%;
 }
 
