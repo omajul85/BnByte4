@@ -1,15 +1,18 @@
 require 'spec_helper'
 
-feature 'Request a space'  do
+feature 'Click on space to see it\'s page'  do
 	let!(:user) do
     User.create(name: 'Foo Bar', username: 'foobar', email: 'foo@bar.com',
       password: 'foobar', password_confirmation: 'foobar')
   end
 
-	scenario 'user can request a space' do
-    	sign_up
-      create_space
-      click_link('Request this space')
-      expect(page.status_code).to eq(200)
+	scenario 'user clicks on space to see further details' do
+    sign_up
+    sign_in
+    expect { create_space }.to change(Space, :count).by(1)
+    click_link("space_link2")
+    expect(page).to have_content('Title for the space')
 	end
+
+
 end
