@@ -31,8 +31,8 @@ module SessionHelpers
   end
 
   def filter(available_from: "01/12/2016", available_to: "30/12/2016")
-    fill_in :from, with: available_from
-    fill_in :until, with: available_to
+    first('input#available_from', visible: false).set("#{available_from}")
+    first('input#available_to', visible: false).set("#{available_to}")
     click_button 'Show spaces available'
   end
 end

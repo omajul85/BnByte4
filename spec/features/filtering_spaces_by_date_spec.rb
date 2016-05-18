@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-xfeature 'Filtering spaces'  do
+feature 'Filtering spaces'  do
   before(:each) do
     User.create(name: 'Foo Bar',
       username: 'fooby',
