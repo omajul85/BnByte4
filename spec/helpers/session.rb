@@ -18,8 +18,13 @@ module SessionHelpers
     click_button 'Log in'
   end
 
-  def create_space(name: 'Title for the space', description: 'Description here',
-    price: '£50', available_from: Date.today.strftime("%d/%m/%Y").to_s, available_to: (Date.today + 1).strftime("%d/%m/%Y").to_s)
+  def create_space(
+    name: 'Title for the space',
+    description: 'Description here',
+    price: '£50',
+    available_from: Date.today.strftime("%d/%m/%Y").to_s,
+    available_to: (Date.today + 1).strftime("%d/%m/%Y").to_s
+    )
     visit('/spaces/new')
     expect(page.status_code).to eq(200)
     fill_in :name, with: name
@@ -30,4 +35,15 @@ module SessionHelpers
     click_button('Create space')
   end
 
+  def sign_out
+    click_button('Sign out')
+  end
+
+  def create_request
+    visit('/')
+    click_link("space_link")
+    first('input#request_from', visible: false).set("#{(Date.today + 1).strftime("%d/%m/%Y").to_s}")
+    first('input#request_to', visible: false).set("#{(Date.today + 1).strftime("%d/%m/%Y").to_s}")
+    click_button('Make a request')
+  end
 end

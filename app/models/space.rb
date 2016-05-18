@@ -5,7 +5,7 @@ class Space
 
   include DataMapper::Resource
 
-  # has n, :requests
+  has n, :requests
   belongs_to :user
 
   property :id, Serial

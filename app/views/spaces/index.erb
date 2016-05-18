@@ -5,7 +5,7 @@
 <% end %>
 
 <% @spaces.each_with_index do |s, i| %>
-<a href="/spaces/request?space_id=<%= s.id %>" id="space_link<%=s.id%>">
+<a href="/spaces/request?space_id=<%= s.id %>" id="space_link">
 <div id='space_<%= i%>' class='spaces'>
 	<h3> <%= s.name %> <span id="price">(Price per night: <%= s.price %>)</span></h3>
 	<p class="space_description"> <%= s.description %> </p>
