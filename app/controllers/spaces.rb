@@ -16,10 +16,10 @@ class BnByte4 < Sinatra::Base
   end
 
   post '/spaces/filtered' do
-    @date_from = params[:available_from]
-    @date_to = params[:available_to]
+    @date_from = Date.parse(params[:available_from])
+    @date_to = Date.parse(params[:available_to])
     @array_of_spaces = Space.all
-    @array_of_spaces.select do |space|
+    @array_of_spaces.select! do |space|
       space.available_from >= @date_from && space.available_to <= @date_to
     end
     p @array_of_spaces
