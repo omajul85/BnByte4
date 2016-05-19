@@ -1,0 +1,13 @@
+<h1>My spaces</h1>
+
+<h3>Click a space to edit it</h3>
+
+<% @spaces.each_with_index do |s, i| %>
+<a href="/spaces/edit/<%= s.id %>" style="text-decoration: none;">
+<div class='spaces'>
+  <h3> <%= s.name %> <span id="price">(Price per night: <%= s.price %>)</span></h3>
+  <p class="space_description"> <%= s.description %> </p>
+  <p class="space_description"> <%= s.available_from %> - <%= s.available_to %> </p>
+</div>
+</a>
+<% end %>

@@ -1,12 +1,12 @@
-<h1>Create spaces</h1>
+<h1>Create space</h1>
 <form action="/spaces" method='post' id="eventForm">
 	<input class='sign' type='text' name='name' placeholder='Name' required><br>
 	<textarea class="sign" name='description' placeholder="Description" required></textarea><br>
 	<input class='sign' type='text' name='price'  placeholder='Price' required><br>
 	<input class='sign' id="daterange" type='text' name='datepicker' placeholder='Available from' required><br>
 	<input type='hidden' id="available_from" name='available_from' value=""><br>
-	<input type='hidden' id="available_to" name='available_to' value=""><br>
-	<input id="submit" class='sign' type='submit' value='Create space'>
+	<input type='hidden' id="available_to" name='available_to' value="">
+	<input id="submit" class="btn btn-warning" type='submit' value='Create space'>
 </form>
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
