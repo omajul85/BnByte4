@@ -1,4 +1,5 @@
 body {
+  padding-top: 72px;
   line-height: 1.8;
   font-family: 'Ubuntu', sans-serif;
   margin-bottom: 100px;
@@ -127,4 +128,10 @@ textarea {
 
 .white-background {
   background: white;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
