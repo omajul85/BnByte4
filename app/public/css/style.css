@@ -6,11 +6,13 @@ body {
 
 p {font-size: 16px;}
 
+
+
 .margin {margin-bottom: 45px;}
 
 .bg-1 {
   background-image: url(/images/houses.jpg);
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   color: #ffffff;
   background-size:cover;
 }
@@ -121,4 +123,8 @@ textarea {
 .sign {
   margin-bottom: 5px;
   width: 20%
+}
+
+.white-background {
+  background: white;
 }
