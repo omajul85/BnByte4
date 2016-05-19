@@ -19,6 +19,12 @@ class BnByte4 < Sinatra::Base
 
   get '/requests' do
     @spaces = current_user.spaces
+    @received_request = []
+    @spaces.each do |space|
+      space.requests.each do |request|
+        @received_request << request
+      end
+    end
     @requests = current_user.requests
     @space_names = []
     @requests.each do |request|

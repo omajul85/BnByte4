@@ -2,3 +2,31 @@
   <%= name %>
   <% end %>
 </h4>
+
+<h3>Requests</h3>
+
+<h4>Requests I've sent</h4>
+<% @requests.each do |request| %>
+  <ul>
+  <li>
+    <%= @space_names.shift %>
+    <%= request.status %>
+    <%= request.date_from %> - <%= request.date_to %>
+  </li>
+  </ul>
+  <% end %>
+
+  <h4>Requests I've received</h4>
+<% @received_request.each do |request| %>
+  <ul>
+  <li>
+    <%= request.space.name %>
+    <%= request.status %>
+    <%= request.date_from %> - <%= request.date_to %>
+    <% if request.status == nil %>
+      <a id="request_accept_<%= request.id %>" href="/requests/accept/<%= request.id %>">Accept</a>
+      <a id="request_deny_<%= request.id %>" href="/requests/deny/<%= request.id %>">Deny</a>
+      <% end %>
+  </li>
+  </ul>
+  <% end %>
