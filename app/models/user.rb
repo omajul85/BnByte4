@@ -9,7 +9,7 @@ class User
   attr_accessor :password_confirmation
 
   has n, :spaces
-  # has n, :requests
+  has n, :requests
   
   validates_confirmation_of :password
   

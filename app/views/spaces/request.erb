@@ -1,11 +1,56 @@
-
 <div class="jumbotron">
   <h1 class="display-3"><%= @space.name %> </h1>
   <p class="lead"> Price per night: <%= @space.price %> </p>
 
   <hr class="m-y-2">
   <p><%= @space.description %></p>
+  <div>
+  <input id="daterange" type="text" ></input>
+  </div>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Check availability</a>
+  <form action="/requests/new" method="POST" id="requestForm">
+    <input type="hidden" id="request_from" name="request_from" value=""></input>
+    <input type="hidden" id="request_to" name="request_to" value=""></input>
+    <input type="hidden" id="space_id" name="space_id" value="<%= @space.id %>"></input>
+    <input type="hidden" id="owner_id" name="owner_id" value="<%= @space.user.id %>"></input>
+    <button class="btn btn-primary btn-lg" type="submit">Make a request</button>
+  </form>
   </p>
 </div>
+
+
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+<script>
+  $('#daterange').daterangepicker({
+    "autoApply": true,
+    "locale": {
+      format: 'DD-MM-YYYY'
+    },
+    "dateFormat": 'dd-mm-yy',
+    "dateLimit": {
+        "days": 31
+    },
+    "startDate": '<%= @space.available_from.strftime("%d/%m/%Y") %>',
+    "endDate": '<%= @space.available_to.strftime("%d/%m/%Y") %>',
+    "minDate": '<%= @space.available_from.strftime("%d/%m/%Y") %>',
+    "maxDate": '<%= @space.available_to.strftime("%d/%m/%Y") %>'
+}, function(start, end, label) {
+  console.log("New date range selected: ' + start.format('DD-MM-YYYY') + ' to ' + end.format('DD-MM-YYYY') + ' (predefined range: ' + label + ')");
+}); 
+  var availableFrom;
+  var availableTo;
+
+  $( '#daterange' ).change(function() {
+    var startD = $('#daterange').data('daterangepicker').startDate._d;
+    var endD = $('#daterange').data('daterangepicker').endDate._d;
+    availableFrom = (startD.getDate() + '/' + (startD.getMonth() + 1) + '/' +  startD.getFullYear());
+    availableTo = (endD.getDate() + '/' + (endD.getMonth() + 1) + '/' +  endD.getFullYear());
+    console.log(availableFrom);
+    console.log(availableTo);
+    $( "#request_from" ).attr( "value", availableFrom );
+    $( "#request_to" ).attr( "value", availableTo );
+  });
+</script>
