@@ -39,20 +39,23 @@
   }, function(start, end, label) {
   	console.log("New date range selected: ' + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY') + ' (predefined range: ' + label + ')");
   });
- 
+
+function datepickerv2(elid_date_from, elid_date_to){
+    var startD = $('#daterange').data('daterangepicker').startDate._d;
+    var endD = $('#daterange').data('daterangepicker').endDate._d;
+    availableFrom = (startD.getDate() + '/' + (startD.getMonth() + 1) + '/' +  startD.getFullYear());
+    availableTo = (endD.getDate() + '/' + (endD.getMonth() + 1) + '/' +  endD.getFullYear());
+    console.log(availableFrom);
+    console.log(availableTo);
+    $( elid_date_from ).attr( "value", availableFrom );
+    $( elid_date_to ).attr( "value", availableTo );
+}
+
 	var availableFrom;
 	var availableTo;
+  datepickerv2("#filter_from", "#filter_to");
 
 	$( '#daterange' ).change(function() {
-		var startD = $('#daterange').data('daterangepicker').startDate._d;
-		var endD = $('#daterange').data('daterangepicker').endDate._d;
-		availableFrom = (startD.getDate() + '/' + (startD.getMonth() + 1) + '/' +  startD.getFullYear());
-		availableTo = (endD.getDate() + '/' + (endD.getMonth() + 1) + '/' +  endD.getFullYear());
-		console.log(availableFrom);
-		console.log(availableTo);
-		$( "#filter_from" ).attr( "value", availableFrom );
-		$( "#filter_to" ).attr( "value", availableTo );
+    datepickerv2("#filter_from", "#filter_to");
 	});
 </script>
-
-
