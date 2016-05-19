@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Request a space'  do
+xfeature 'Request a space'  do
 	let!(:user) do
     User.create(name: 'Foo Bar', username: 'foobar', email: 'foo@bar.com',
       password: 'foobar', password_confirmation: 'foobar')
