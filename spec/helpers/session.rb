@@ -33,6 +33,6 @@ module SessionHelpers
   def filter(available_from: "01/12/2016", available_to: "30/12/2016")
     first('input#filter_from', visible: false).set("#{available_from}")
     first('input#filter_to', visible: false).set("#{available_to}")
-    click_button('Show spaces available')
+    click_button('Filter by date')
   end
 end
