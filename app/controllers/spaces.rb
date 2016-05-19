@@ -49,4 +49,27 @@ class BnByte4 < Sinatra::Base
     @space = Space.get(@space_id)
     erb :'/spaces/request'
   end
+
+  get '/spaces/account' do
+    @spaces = Space.all(user: current_user)
+    erb :'/spaces/account'
+  end
+
+  get '/spaces/edit/:space_id' do
+    unless current_user
+      redirect '/sessions/new'
+    end
+    @space = Space.get(params[:space_id])
+    if current_user.id == @space.user.id
+      erb :'/spaces/edit'
+    else
+      redirect '/spaces/account'
+    end
+  end
+
+  post '/spaces/edit' do
+    p params[:description]
+    Space.get(params[:space_id]).update(name: params[:name], description: params[:description], price: params[:price])
+    redirect '/spaces/account'
+  end
 end
