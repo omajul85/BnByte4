@@ -67,7 +67,7 @@
 				<% @received_request.each do |request| %>
 				<div id="space" class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
+						<h3 class="panel-title"><%=  %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
 						</div>
 						<div class="panel-body">
 					<%= request.status %>
