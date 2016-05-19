@@ -31,7 +31,7 @@
     },
     "dateFormat": 'dd-mm-yy',
     "dateLimit": {
-        "days": 31
+        "years": 1
     },
     "startDate": '<%= @space.available_from.strftime("%d/%m/%Y") %>',
     "endDate": '<%= @space.available_to.strftime("%d/%m/%Y") %>',
@@ -39,18 +39,24 @@
     "maxDate": '<%= @space.available_to.strftime("%d/%m/%Y") %>'
 }, function(start, end, label) {
   console.log("New date range selected: ' + start.format('DD-MM-YYYY') + ' to ' + end.format('DD-MM-YYYY') + ' (predefined range: ' + label + ')");
-}); 
-  var availableFrom;
-  var availableTo;
+});
 
-  $( '#daterange' ).change(function() {
+  function datepickerv2(elid_date_from, elid_date_to){
     var startD = $('#daterange').data('daterangepicker').startDate._d;
     var endD = $('#daterange').data('daterangepicker').endDate._d;
     availableFrom = (startD.getDate() + '/' + (startD.getMonth() + 1) + '/' +  startD.getFullYear());
     availableTo = (endD.getDate() + '/' + (endD.getMonth() + 1) + '/' +  endD.getFullYear());
     console.log(availableFrom);
     console.log(availableTo);
-    $( "#request_from" ).attr( "value", availableFrom );
-    $( "#request_to" ).attr( "value", availableTo );
+    $( elid_date_from ).attr( "value", availableFrom );
+    $( elid_date_to ).attr( "value", availableTo );
+}
+
+  var availableFrom;
+  var availableTo;
+  datepickerv2("#request_from", "#request_to");
+
+  $( '#daterange' ).change(function() {
+    datepickerv2("#request_from", "#request_to");
   });
-</script>
+  </script>
