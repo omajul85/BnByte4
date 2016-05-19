@@ -1,29 +1,38 @@
 	<h1 class="display-3"> My requests</h1>
-		<hr class="m-y-2">
+	<hr class="m-y-2">
 
 
 
-		<div class ="row">
-			<div class="col-md-6" >
+	<div class ="row">
+		<div class="col-md-6" >
 			<div class ="jumbotron">
 				<h2>Sent</h2>
 				<hr class="m-y-2">
+
+
 				<% @requests.each do |request| %>
-				<div id="space" class="spaces">
-						<%= @space_names.shift %>
-						<%= request.status %>
-						<%= request.date_from %> - <%= request.date_to %>
-				</div>
+				<div id="space" class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
+					</div>
+					<div class="panel-body">
+						Booking status:
+						<% if request.status == nil %>
+						pending
+						<% end %>
+						</div>
+					</div>
+
 				<% end %>
 			</div>
-			</div>
+
 
 
 			<div class="col-md-6">
-			<div class="jumbotron ">
-				<h2>Received</h2>
-				<hr class="m-y-2">
-				<% @received_request.each do |request| %>
+				<div class="jumbotron ">
+					<h2>Received</h2>
+					<hr class="m-y-2">
+					<% @received_request.each do |request| %>
 					<div id="space" class="spaces">
 						<%= request.space.name %>
 						<%= request.status %>
@@ -32,12 +41,12 @@
 						<a id="request_accept_<%= request.id %>" href="/requests/accept/<%= request.id %>">Accept</a>
 						<a id="request_deny_<%= request.id %>" href="/requests/deny/<%= request.id %>">Deny</a>
 						<% end %>
-						</div>
-				<% end %>
-			</div>
+					</div>
+					<% end %>
+				</div>
 			</div>
 
-</div>
+		</div>
 
 
 
