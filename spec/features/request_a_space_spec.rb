@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature 'Click on space to see it\'s page'  do
 	let!(:user) do
     User.create(name: 'Foo Bar', username: 'foobar', email: 'foo@bar.com',
@@ -13,6 +11,4 @@ feature 'Click on space to see it\'s page'  do
     click_link("space_link2")
     expect(page).to have_content('Title for the space')
 	end
-
-
 end

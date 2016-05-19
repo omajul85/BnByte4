@@ -45,5 +45,10 @@ module SessionHelpers
     first('input#request_from', visible: false).set("#{(Date.today + 1).strftime("%d/%m/%Y").to_s}")
     first('input#request_to', visible: false).set("#{(Date.today + 1).strftime("%d/%m/%Y").to_s}")
     click_button('Make a request')
+
+  def filter(available_from: "01/12/2016", available_to: "30/12/2016")
+    first('input#filter_from', visible: false).set("#{available_from}")
+    first('input#filter_to', visible: false).set("#{available_to}")
+    click_button('Filter by date')
   end
 end
