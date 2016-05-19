@@ -2,12 +2,32 @@
 
 <h3>Click a space to edit it</h3>
 
+<p>
+<hr class="m-y-2">
+<p>
+
+<div class ="row">
+<div class= "col-md-3">
+</div>
+
+<div class="col-md-6">
+
 <% @spaces.each_with_index do |s, i| %>
+
 <a href="/spaces/edit/<%= s.id %>" style="text-decoration: none;">
-<div class='spaces'>
-  <h3> <%= s.name %> <span id="price">(Price per night: <%= s.price %>)</span></h3>
+
+<div id="space" class='panel panel-default'>
+<div class="panel-heading panel-heading-custom">
+  <h3 class="panel-title"> <%= s.name %> <span id="price">(Price per night: <%= s.price %>)</span></h3>
+  </div>
+  <div class="panel-body">
   <p class="space_description"> <%= s.description %> </p>
   <p class="space_description"> <%= s.available_from %> - <%= s.available_to %> </p>
 </div>
+</div>
 </a>
 <% end %>
+
+</div>
+<div class= "col-md-3">
+</div>

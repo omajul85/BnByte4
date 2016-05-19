@@ -128,3 +128,9 @@ textarea {
 .white-background {
   background: white;
 }
+
+.panel-default > .panel-heading-custom {
+  background: #38b3e0; color: #fff;
+}
+
+
