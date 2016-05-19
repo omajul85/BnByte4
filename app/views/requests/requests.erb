@@ -1,32 +1,49 @@
-<h4>You have made a request for <% @space_names.each do |name| %>
-  <%= name %>
-  <% end %>
-</h4>
+	<h1 class="display-3"> My requests</h1>
+		<hr class="m-y-2">
 
-<h3>Requests</h3>
 
-<h4>Requests I've sent</h4>
-<% @requests.each do |request| %>
-  <ul>
-  <li>
-    <%= @space_names.shift %>
-    <%= request.status %>
-    <%= request.date_from %> - <%= request.date_to %>
-  </li>
-  </ul>
-  <% end %>
 
-  <h4>Requests I've received</h4>
-<% @received_request.each do |request| %>
-  <ul>
-  <li>
-    <%= request.space.name %>
-    <%= request.status %>
-    <%= request.date_from %> - <%= request.date_to %>
-    <% if request.status == nil %>
-      <a id="request_accept_<%= request.id %>" href="/requests/accept/<%= request.id %>">Accept</a>
-      <a id="request_deny_<%= request.id %>" href="/requests/deny/<%= request.id %>">Deny</a>
-      <% end %>
-  </li>
-  </ul>
-  <% end %>
+		<div class ="row">
+			<div class="col-md-6" >
+			<div class ="jumbotron">
+				<h2>Sent</h2>
+				<hr class="m-y-2">
+				<% @requests.each do |request| %>
+				<div id="space" class="spaces">
+						<%= @space_names.shift %>
+						<%= request.status %>
+						<%= request.date_from %> - <%= request.date_to %>
+				</div>
+				<% end %>
+			</div>
+			</div>
+
+
+			<div class="col-md-6">
+			<div class="jumbotron ">
+				<h2>Received</h2>
+				<hr class="m-y-2">
+				<% @received_request.each do |request| %>
+					<div id="space" class="spaces">
+						<%= request.space.name %>
+						<%= request.status %>
+						<%= request.date_from %> - <%= request.date_to %>
+						<% if request.status == nil %>
+						<a id="request_accept_<%= request.id %>" href="/requests/accept/<%= request.id %>">Accept</a>
+						<a id="request_deny_<%= request.id %>" href="/requests/deny/<%= request.id %>">Deny</a>
+						<% end %>
+						</div>
+				<% end %>
+			</div>
+			</div>
+
+</div>
+
+
+
+
+
+
+
+
+
