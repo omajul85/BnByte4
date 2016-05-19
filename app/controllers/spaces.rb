@@ -31,7 +31,11 @@ class BnByte4 < Sinatra::Base
     end
     ids = []
     @array_of_spaces.each{ |space| ids << space.id }
-    session[:ids_of_filtered_spaces] = ids
+    if ids.any?
+      session[:ids_of_filtered_spaces] = ids
+    else
+      flash[:notice] = 'No spaces available for selected dates'
+    end
     redirect '/'
   end
 

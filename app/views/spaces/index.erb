@@ -4,12 +4,11 @@
 <h3><a class="btn btn-primary" href="/spaces/new">Create a new space</a></h3>
 <% end %>
 
-<p>Filter by date</p>
 <form action="/spaces/filtered" method='post'>
-	<input class='sign' id="daterange" type='text' name='datepicker' placeholder='Available from' required><br>
-	<input type='hidden' id='filter_from' name='available_from' value=''><br>
-	<input type='hidden' id='filter_to' name='available_to' value=''><br>
-	<input id="submit" class='sign' type='submit' value='Show spaces available'>
+	<input class='sign' id="daterange" type='text' name='datepicker' required>
+	<input type='hidden' id='filter_from' name='available_from' value=''>
+	<input type='hidden' id='filter_to' name='available_to' value=''>
+	<input id="submit" class='btn btn-warning' type='submit' value='Filter by date'>
 </form>
 
 <% @spaces.each_with_index do |s, i| %>
@@ -27,19 +26,20 @@
 
 <script>
 	$('#daterange').daterangepicker({
-    "autoApply": true,
-    "locale": {
-    	format: 'DD-MM-YYYY'
-    },
-    "dateFormat": 'dd/mm/yyyy',
-    "dateLimit": {
-        "days": 31
-    }
+		"autoApply": true,
+		"locale": {
+			format: 'DD-MM-YYYY'
+		},
+		"dateFormat": 'dd/mm/yyyy',
+		"dateLimit": {
+			"years": 1
+		}
     // "startDate": "05/01/2016",
     // "endDate": "08/31/2016"
-}, function(start, end, label) {
-  console.log("New date range selected: ' + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY') + ' (predefined range: ' + label + ')");
-});
+  }, function(start, end, label) {
+  	console.log("New date range selected: ' + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY') + ' (predefined range: ' + label + ')");
+  });
+ 
 	var availableFrom;
 	var availableTo;
 
