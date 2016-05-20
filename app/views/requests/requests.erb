@@ -12,48 +12,19 @@
 
 			<% @requests.each do |request| %>
 
-			<%if request.status == nil %>
-
-			<div id="space" class="panel panel-info">
+			<div id="space" class="panel <%= request.status.sub(' ', "").downcase %>">
 				<div class="panel-heading">
 					<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
 				</div>
 				<div class="panel-body">
-					Booking status: pending
+					Booking status: <%= request.status %>
 				</div>
 			</div>
-
-			<% elsif request.status == false %>
-
-			<div id="space" class="panel panel-danger">
-				<div class="panel-heading">
-					<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
-				</div>
-				<div class="panel-body">
-					Booking status: denied
-				</div>
-			</div>
-
-			<% else request.status == true %>
-
-			<div id="space" class="panel panel-success">
-				<div class="panel-heading">
-					<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
-				</div>
-				<div class="panel-body">
-					Booking status: denied
-				</div>
-			</div>
-
-			<%end%>
-
 			<% end %>
 
 		</div>
 
 		</div>
-
-
 
 		<div class="col-md-6">
 			<div class="jumbotron white-background">
@@ -67,12 +38,11 @@
 						<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
 						</div>
 						<div class="panel-body">
-					<%= request.status %>
-					<% if request.status == nil %>
-					<a id="request_accept_<%= request.id %>" href="/requests/accept/<%= request.id %>">Approve</a>
-					|
-					<a id="request_deny_<%= request.id %>" href="/requests/deny/<%= request.id %>">Reject</a>
-					<% end %>
+						<%= request.status %>
+						<% if request.status.sub(' ', "").downcase == "notconfirmed" %>
+						<form action="/requests/accept/<%= request.id %>">
+						<button id="request_accept_<%= request.id %>" type="submit">Approve</button></form>
+						<% end %>
 					</div>
 				</div>
 				<% end %>

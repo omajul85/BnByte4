@@ -8,7 +8,7 @@ class Request
   property :date_from, Date, required: true
   property :date_to, Date, required: true
   property :owner_id, Integer, required: true
-  property :status, Boolean
+  property :status, String, default: "Not confirmed"
 
   belongs_to :user
   belongs_to :space
