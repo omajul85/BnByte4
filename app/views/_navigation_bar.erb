@@ -1,7 +1,11 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">BnByte4</a><br>
+      <a class="navbar-brand" href="/">BnByte4</a>
+
+      <% if current_user %>
+      <b class="navbar-text">|   Welcome, <%=current_user.name%> </b>
+      <%end%>
     </div>
     <div>
 
@@ -13,8 +17,8 @@
         <input class='navbar_button' type="submit" value="Sign up">
       </form>
       <% else %>
-      <p class="navbar-text pull-right">| <%=current_user.name%></p>
-      <form class='nav' action='/sessions' method='post'>
+
+      <form class='nav vcenter' action='/sessions' method='post'>
         <input type='hidden' name='_method' value='delete'>
         <input class='navbar_button' type='submit' value='Sign out'>
       </form>
