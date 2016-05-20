@@ -8,15 +8,15 @@ feature 'Request' do
       password_confirmation: 'password'
       )
     sign_in(email: 'theg@granny.com', password: 'password')
-    create_space
+    expect{ create_space }.to change(Space, :count).by(1)
     sign_out
   end
 
   scenario 'is created by user' do
     sign_up
-    create_request
+    expect{ create_request }.to change(Request, :count).by(1)
     expect(page.status_code).to eq(200)
-    expect(page).to have_content('Booking status: pending')
+    expect(page).to have_content('Booking status: Not confirmed')
   end
 
 end

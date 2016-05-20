@@ -52,8 +52,8 @@ end
 
 def create_request(available_from: "01/12/2016", available_to: "30/12/2016")
   visit('/spaces/request?space_id=1')
-  first('input#request_from', visible: false).set("#{request_from}")
-  first('input#request_to', visible: false).set("#{request_to}")
+  first('input#request_from', visible: false).set("#{available_from}")
+  first('input#request_to', visible: false).set("#{available_to}")
   click_button('Make a request')
 end
 
