@@ -4,22 +4,22 @@ Week 6 challenge - MakersBnB [![Build Status](https://travis-ci.org/omajul85/BnB
 ###Screenshots
 
 ![Image of Home Page Page]
-(http://imgur.com/j7mpZYn)
+(http://i.imgur.com/j7mpZYn.jpg)
 
 ![Image of Sign Up Page]
-(http://imgur.com/LK4gl2B)
+(http://i.imgur.com/LK4gl2B.jpg)
 
 ![Image of Sign In Page]
-(http://imgur.com/mrkoqVT)
+(http://i.imgur.com/mrkoqVT.jpg)
 
 ![Image of Spaces Page]
-(http://imgur.com/ByeQJ1K)
+(http://i.imgur.com/ByeQJ1K.jpg)
 
 ![Image of Create Space Page]
-(http://imgur.com/bOky4bK)
+(http://i.imgur.com/bOky4bK.jpg)
 
 ![Image of Requests Page]
-(http://imgur.com/03m0gWH)
+(http://i.imgur.com/03m0gWH.jpg)
 
 ###Instructions
 To deploy local version
