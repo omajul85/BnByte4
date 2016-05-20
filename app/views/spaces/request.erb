@@ -37,20 +37,25 @@
 <script>
   $('#daterange').daterangepicker({
     "autoApply": true,
+    "isInvalidDate": validDates,
     "locale": {
-      format: 'DD-MM-YYYY'
+      "format": 'DD-MM-YYYY'
     },
     "dateFormat": 'dd-mm-yy',
     "dateLimit": {
         "years": 1
     },
-    "startDate": '<%= @space.available_from.strftime("%d/%m/%Y") %>',
-    "endDate": '<%= @space.available_to.strftime("%d/%m/%Y") %>',
-    "minDate": '<%= @space.available_from.strftime("%d/%m/%Y") %>',
-    "maxDate": '<%= @space.available_to.strftime("%d/%m/%Y") %>'
+    "minDate": '<%= @space.available_from.strftime("%d/%-m/%Y") %>',
+    "maxDate": '<%= @space.available_to.strftime("%d/%-m/%Y") %>'
 }, function(start, end, label) {
   console.log("New date range selected: ' + start.format('DD-MM-YYYY') + ' to ' + end.format('DD-MM-YYYY') + ' (predefined range: ' + label + ')");
 });
+  console.log(validDates);
+  function validDates(date) {
+      var arr = <%= @unavailable_dates %>;
+      var string = (date._d.getDate() + '/' + (date._d.getMonth() + 1) + '/' +  date._d.getFullYear());
+      return $.inArray(string,arr) != -1
+    }
 
   function datepickerv2(elid_date_from, elid_date_to){
     var startD = $('#daterange').data('daterangepicker').startDate._d;

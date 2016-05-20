@@ -32,4 +32,9 @@ class BnByte4 < Sinatra::Base
     end
     erb :'/requests/requests'
   end
+
+  post '/requests/approve/:request_id' do
+    Request.first(id: params[:request_id]).update(status: "Confirmed")
+    redirect '/requests'
+  end
 end

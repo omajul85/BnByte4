@@ -47,6 +47,13 @@ class BnByte4 < Sinatra::Base
   get '/spaces/request' do
     @space_id = params[:space_id]
     @space = Space.get(@space_id)
+    @unavailable_dates = []
+    @space.requests.each do |request|
+      if request.status == "Confirmed"
+        @unavailable_dates << (request.date_from..request.date_to).to_a
+      end
+    end
+    @unavailable_dates = @unavailable_dates.flatten.uniq.map { |date| date.strftime("%d/%-m/%Y") }
     erb :'/spaces/request'
   end
 
