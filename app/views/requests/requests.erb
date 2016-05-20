@@ -4,7 +4,10 @@
 
 
 <div class ="row">
-	<div class="col-md-6" >
+<div class= "col-md-2">
+</div>
+
+	<div class="col-md-4" >
 		<div class ="jumbotron white-background">
 			<h2>Sent</h2>
 			<hr class="m-y-2">
@@ -16,9 +19,11 @@
 
 			<div id="space" class="panel panel-info">
 				<div class="panel-heading">
-					<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
+					<h3 class="panel-title"><%= @space_names.shift %></h3>
 				</div>
 				<div class="panel-body">
+				You requested the space for the following dates: &nbsp;&nbsp;
+				<%=request.date_from %> - <%=request.date_to%><p>
 					Booking status: pending
 				</div>
 			</div>
@@ -27,9 +32,11 @@
 
 			<div id="space" class="panel panel-danger">
 				<div class="panel-heading">
-					<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
+					<h3 class="panel-title"><%= @space_names.shift %></h3>
 				</div>
 				<div class="panel-body">
+				You requested the space for the following dates: &nbsp;&nbsp;
+				<%=request.date_from %> - <%=request.date_to%><p>
 					Booking status: denied
 				</div>
 			</div>
@@ -38,10 +45,12 @@
 
 			<div id="space" class="panel panel-success">
 				<div class="panel-heading">
-					<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
+					<h3 class="panel-title"><%= @space_names.shift %> </h3>
 				</div>
 				<div class="panel-body">
-					Booking status: denied
+				You requested the space for the following dates:
+				<%=request.date_from %> - <%=request.date_to%><p>
+					Booking status: accepted
 				</div>
 			</div>
 
@@ -53,9 +62,9 @@
 
 		</div>
 
+request.space.name
 
-
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<div class="jumbotron white-background">
 				<h2>Received</h2>
 				<hr class="m-y-2">
@@ -64,9 +73,12 @@
 				<% @received_request.each do |request| %>
 				<div id="space" class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title"><%= @space_names.shift %> (<%=request.date_from %> - <%=request.date_to%>)</h3>
+						<h3 class="panel-title"> Request from <%= request.user.name %> </h3>
 						</div>
 						<div class="panel-body">
+					<%= request.user.name %> has requested <%=request.space.name%> for the following dates:
+					<p>
+					<%=request.date_from %> - <%=request.date_to%><p>
 					<%= request.status %>
 					<% if request.status == nil %>
 					<a id="request_accept_<%= request.id %>" href="/requests/accept/<%= request.id %>">Approve</a>
@@ -78,7 +90,8 @@
 				<% end %>
 			</div>
 		</div>
-
+<div class= "col-md-2">
+</div>
 	</div>
 
 

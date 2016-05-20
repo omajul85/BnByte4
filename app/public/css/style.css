@@ -105,9 +105,9 @@ textarea {
 }
 
 #price {
-  font-size: 15px;
-  font-style: italic;
-  color: #e6005c;
+  font-size: 13px;
+  /*font-style: italic;*/
+  color: #006dcc;
 }
 
 .space_description {
@@ -130,8 +130,34 @@ textarea {
   background: white;
 }
 
+<<<<<<< HEAD
+.panel-default > .panel-heading-custom {
+  background: #ffffff; color: #000000;
+}
+
+h1.panel-title {
+    font-size: 36px;
+}
+h2.panel-title {
+    font-size: 30px;
+}
+h3.panel-title {
+    font-size: 24px;
+}
+h4.panel-title {
+    font-size: 18px
+}
+h5.panel-title {
+    font-size: 14px
+}
+h6.panel-title {
+    font-size: 10px;
+}
+
+=======
 .vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
 }
+>>>>>>> master

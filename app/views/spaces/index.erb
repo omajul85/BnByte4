@@ -1,25 +1,46 @@
-<h1> Spaces </h1>
+<h1 class="display-3"> Spaces </h1>
+
 
 <% if current_user %>
-<h3><a class="btn btn-primary" href="/spaces/new">Create a new space</a></h3>
+<h3><a class="btn btn-primary" href="/spaces/new">Add your own space</a></h3>
 <% end %>
 
 <form action="/spaces/filtered" method='post'>
 	<input class='sign' id="daterange" type='text' name='datepicker' required>
 	<input type='hidden' id='filter_from' name='available_from' value=''>
 	<input type='hidden' id='filter_to' name='available_to' value=''>
-	<input id="submit" class='btn btn-warning' type='submit' value='Filter by date'>
+	<input id="submit" class='btn btn-warning' type='submit' value='Filter spaces by date'>
 </form>
+<p>
+<hr class="m-y-2">
+<p>
+<div class ="row">
+<div class= "col-md-4">
+</div>
+
+<div class="col-md-4">
 
 <% @spaces.each_with_index do |s, i| %>
+
 <a href="/spaces/request?space_id=<%= s.id %>" style="text-decoration: none;">
-<div id='space_<%= i%>' class='spaces'>
-  <h3> <%= s.name %> <span id="price">(Price per night: <%= s.price %>)</span></h3>
+
+<div id='space_<%= i%>' class='panel panel-default'>
+  <div class="panel-heading panel-heading-custom">
+  <p>
+  <h2 class="panel-title"> <%= s.name %> <span id="price"><p><p>   Price per night: <%= s.price %>  </span></h2>
+  </div>
+  <div class="panel-body">
   <p class="space_description"> <%= s.description %> </p>
-  <p class="space_description"> <%= s.available_from %> - <%= s.available_to %> </p>
+  <p class="space_description">Available from: <%= s.available_from %> to <%= s.available_to %> </p>
+  </div>
 </div>
 </a>
 <% end %>
+
+</div>
+<div class= "col-md-4">
+</div>
+
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>

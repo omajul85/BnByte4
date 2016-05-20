@@ -199,6 +199,29 @@
         0,
         0,
         null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
         null
       ],
       "/Users/admin/Dropbox/projects/main_course/Week_6/BnByte4/app/controllers/sessions.rb": [
@@ -477,7 +500,18 @@
         0,
         null,
         null
+      ],
+      "/Users/Jack_R/code/BnByte4/spec/features/sign_up_spec.rb": [
+        1,
+        1,
+        2,
+        1,
+        0,
+        null,
+        null
       ]
+    },
+    "timestamp": 1463733388
     },
     "timestamp": 1463737657
   }
