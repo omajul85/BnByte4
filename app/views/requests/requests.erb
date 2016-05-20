@@ -46,7 +46,7 @@
 					<%=request.date_from %> - <%=request.date_to%><p>
 						<%= request.status %>
 						<% if request.status.sub(' ', "").downcase == "notconfirmed" %>
-						<form action="/requests/accept/<%= request.id %>">
+						<form method="POST" action="/requests/approve/<%= request.id %>">
 						<button id="request_accept_<%= request.id %>" type="submit">Approve</button></form>
 						<% end %>
 					</div>
