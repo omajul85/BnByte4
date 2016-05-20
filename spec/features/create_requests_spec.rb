@@ -9,14 +9,14 @@ feature 'Request' do
       )
     sign_in(email: 'theg@granny.com', password: 'password')
     create_space
+    sign_out
   end
 
   scenario 'is created by user' do
     sign_up
-    sign_in(email: 'foo@bar.com', password: 'foobar')
     create_request
     expect(page.status_code).to eq(200)
-    expect(page).to have_content('You have made a request for Title for the space')
+    expect(page).to have_content('Booking status: pending')
   end
 
 end
