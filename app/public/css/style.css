@@ -104,9 +104,9 @@ textarea {
 }
 
 #price {
-  font-size: 15px;
-  font-style: italic;
-  color: #e6005c;
+  font-size: 13px;
+  /*font-style: italic;*/
+  color: #006dcc;
 }
 
 .space_description {
@@ -137,7 +137,7 @@ h1.panel-title {
     font-size: 36px;
 }
 h2.panel-title {
-    font-size: 26px;
+    font-size: 30px;
 }
 h3.panel-title {
     font-size: 24px;
